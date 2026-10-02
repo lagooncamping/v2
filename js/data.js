@@ -31,17 +31,17 @@ window.LAGOON = {
   // TODO: รูปตอนนี้เป็นรูปตัวอย่าง ยังไม่ใช่รูปจริงของแต่ละหลัง
   houses: [
     {
-      id: 'lagoon-1', group: 'lagoon', name: 'Lagoon 1', guests: 2, price: 1300,
+      id: 'lagoon-1', group: 'lagoon', name: 'Lagoon 1', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
       photos: ['houses.jpg', 'house-orchid.jpg', 'lake-view.jpg'],
     },
     {
-      id: 'lagoon-2', group: 'lagoon', name: 'Lagoon 2', guests: 2, price: 1300,
+      id: 'lagoon-2', group: 'lagoon', name: 'Lagoon 2', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
       photos: ['house-orchid.jpg', 'houses.jpg', 'lake-view.jpg'],
     },
     {
-      id: 'lagoon-3', group: 'lagoon', name: 'Lagoon 3', guests: 2, price: 1300,
+      id: 'lagoon-3', group: 'lagoon', name: 'Lagoon 3', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
       photos: ['houses.jpg', 'lake-view.jpg'],
     },
