@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>จองที่พัก | The Lagoon Camping Resort</title>
+  <meta name="description" content="เช็กวันว่างและจองบ้านพักริมทะเลสาบ The Lagoon Camping Resort นายายอาม จันทบุรี ออนไลน์">
+  <link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/booking.html">
+  <link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/booking.html">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Chonburi&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body data-page="booking" data-root="">
+
+  <main class="book">
+    <div class="wrap">
+      <!-- โชว์เฉพาะโหมดทดลอง (เปิดหน้าด้วย ?demo=1) -->
+      <p class="demo-note">โหมดทดลอง: บ้านที่ขึ้นว่า "ถูกจองแล้ว" เป็นข้อมูลตัวอย่าง และจะไม่บันทึกการจองจริง</p>
+
+      <!-- ===== ขั้นที่ 1: เลือกวันและบ้าน ===== -->
+      <section id="step-pick" aria-labelledby="pick-h">
+        <div class="step-head">
+          <span class="eyebrow">จองที่พัก</span>
+          <h1 id="pick-h">เลือกวันและบ้านพัก</h1>
+        </div>
+
+        <div class="dates">
+          <label class="field">เช็กอิน
+            <input type="date" id="checkin" required>
+          </label>
+          <label class="field">เช็กเอาต์
+            <input type="date" id="checkout" required>
+          </label>
+        </div>
+        <p class="nights" id="nights" aria-live="polite">เลือกวันเข้าพักก่อน แล้วติ๊กเลือกบ้านที่ว่าง</p>
+
+        <!-- แผนผังจำลอง: แก้ตำแหน่งบ้านได้ที่ x, y ของแต่ละ <g class="m"> -->
+        <figure class="map">
+          <svg viewBox="0 0 300 220" role="group" aria-label="แผนผังบ้านพัก กดที่บ้านเพื่อดูรูปและเลือก">
+            <path class="lake" d="M0 0H300V62C250 88 205 56 160 74C112 94 60 70 0 90Z"/>
+            <text class="lake-label" x="24" y="34">ทะเลสาบ</text>
+            <path class="walk" d="M292 210C250 200 236 160 190 154S80 150 18 146"/>
+            <text class="entry" x="252" y="214">ทางเข้า →</text>
+
+            <g class="m" data-house="family-1" tabindex="0" role="button">
+              <rect x="28" y="100" width="72" height="28" rx="5"/><text x="64" y="114">Family 1</text>
+            </g>
+            <g class="m" data-house="family-2" tabindex="0" role="button">
+              <rect x="114" y="100" width="72" height="28" rx="5"/><text x="150" y="114">Family 2</text>
+            </g>
+            <g class="m" data-house="studio" tabindex="0" role="button">
+              <rect x="200" y="100" width="72" height="28" rx="5"/><text x="236" y="114">Studio</text>
+            </g>
+            <g class="m" data-house="lagoon-1" tabindex="0" role="button">
+              <rect x="28" y="170" width="72" height="28" rx="5"/><text x="64" y="184">Lagoon 1</text>
+            </g>
+            <g class="m" data-house="lagoon-2" tabindex="0" role="button">
+              <rect x="114" y="170" width="72" height="28" rx="5"/><text x="150" y="184">Lagoon 2</text>
+            </g>
+            <g class="m" data-house="lagoon-3" tabindex="0" role="button">
+              <rect x="200" y="170" width="72" height="28" rx="5"/><text x="236" y="184">Lagoon 3</text>
+            </g>
+          </svg>
+          <ul class="legend">
+            <li><i></i>ว่าง</li>
+            <li><i class="sel"></i>เลือกแล้ว</li>
+            <li><i class="bk"></i>ถูกจองแล้ว</li>
+          </ul>
+          <figcaption>แผนผังจำลอง กดที่บ้านเพื่อดูรูปและเลือก</figcaption>
+        </figure>
+
+        <div class="houses" id="houses"></div>
+      </section>
+
+      <!-- ===== ขั้นที่ 2: กรอกข้อมูล ===== -->
+      <section id="step-details" aria-labelledby="details-h" hidden>
+        <button class="back" type="button" data-back>← เปลี่ยนบ้านหรือวันที่</button>
+        <div class="step-head">
+          <span class="eyebrow">ขั้นตอนสุดท้าย</span>
+          <h1 id="details-h">กรอกข้อมูลผู้จอง</h1>
+        </div>
+        <dl class="summary" id="summary"></dl>
+
+        <form class="form" id="details-form" novalidate>
+          <label class="field">ชื่อผู้จอง
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="field">เบอร์โทร
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="0[0-9\- ]{8,11}" placeholder="08X-XXX-XXXX" required>
+          </label>
+          <label class="field">จำนวนผู้เข้าพัก (ท่าน)
+            <input type="number" name="guests" min="1" max="30" value="2" required>
+          </label>
+          <p class="hint" id="capacity"></p>
+          <label class="field">หมายเหตุ (ถ้ามี)
+            <textarea name="note" rows="3" maxlength="490" placeholder="เช่น พาน้องหมามาด้วย, มาถึงประมาณ 15:00"></textarea>
+          </label>
+          <!-- เลือกแบบชำระเงิน (ยอดเงินเติมโดย js/booking.js) -->
+          <fieldset class="paytype">
+            <legend>เลือกแบบชำระเงิน</legend>
+            <label class="paytype-opt">
+              <input type="radio" name="payType" value="deposit" required>
+              <span><b>มัดจำ 50%</b> <span class="paytype-amount" data-amount="deposit"></span>
+                <small>ส่วนที่เหลือจ่ายวันเช็กอิน (เงินสดหรือโอนหน้าเคาน์เตอร์) · ยกเลิกหรือไม่มาเข้าพัก ไม่คืนเงินมัดจำ</small></span>
+            </label>
+            <label class="paytype-opt">
+              <input type="radio" name="payType" value="full" required>
+              <span><b>ชำระเต็มจำนวน</b> <span class="paytype-amount" data-amount="full"></span>
+                <small>ยกเลิกหรือไม่มาเข้าพัก รับเงินคืน 50% ของยอดจอง</small></span>
+            </label>
+          </fieldset>
+
+          <!-- เงื่อนไขการจอง (แก้ข้อความได้ที่นี่ และใน stay.html) -->
+          <div class="policy">
+            <h2>เงื่อนไขการจอง</h2>
+            <ul>
+              <li>ชำระผ่านพร้อมเพย์ <b>ภายใน 6 ชั่วโมง</b>หลังจอง ไม่เช่นนั้นการจองจะถูกยกเลิกอัตโนมัติ</li>
+              <li>ชำระแล้ว แจ้งแอดมินเพื่อขอเลื่อนวันเข้าพักได้</li>
+              <li><b>มัดจำ 50%:</b> ส่วนที่เหลือชำระวันเช็กอิน เป็นเงินสดหรือโอนหน้าเคาน์เตอร์ · ยกเลิกหรือไม่มาเข้าพัก ไม่คืนเงินมัดจำ</li>
+              <li><b>ชำระเต็มจำนวน:</b> ยกเลิกหรือไม่มาเข้าพัก รับเงินคืน 50% ของยอดจอง (แอดมินโอนคืนให้)</li>
+            </ul>
+          </div>
+          <label class="agree"><input type="checkbox" name="agree" required> ฉันอ่านและยอมรับเงื่อนไขการจอง</label>
+          <!-- ช่องลับกันบอท: คนจริงมองไม่เห็น ห้ามลบ -->
+          <label class="hp" aria-hidden="true">เว็บไซต์<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="btn btn-primary" type="submit">ยืนยันการจอง</button>
+        </form>
+      </section>
+
+      <!-- ===== ขั้นที่ 3: ชำระเงิน ===== -->
+      <section id="step-done" aria-labelledby="done-h" hidden>
+        <div class="step-head">
+          <span class="eyebrow">ขั้นตอนสุดท้าย</span>
+          <h1 id="done-h">ชำระเงินเพื่อยืนยันการจอง</h1>
+          <p>ล็อกบ้านไว้ให้คุณแล้ว กรุณาชำระเงินภายในเวลาที่กำหนด ไม่เช่นนั้นการจองจะถูกยกเลิกอัตโนมัติ</p>
+        </div>
+
+        <div class="pay">
+          <figure class="pay-qr">
+            <div id="pay-qr" role="img" aria-label="QR พร้อมเพย์สำหรับชำระเงิน"></div>
+            <figcaption>สแกนด้วยแอปธนาคาร ยอดเงินขึ้นให้อัตโนมัติ</figcaption>
+          </figure>
+          <dl class="pay-info">
+            <dt>รหัสการจอง</dt><dd id="pay-id"></dd>
+            <dt id="pay-due-label">ยอดที่ต้องชำระ</dt><dd class="pay-amount" id="pay-due"></dd>
+            <dt class="pay-rest-row">ยอดคงเหลือ</dt><dd class="pay-rest-row" id="pay-rest"></dd>
+            <dt>ชำระภายใน</dt><dd class="pay-deadline" id="pay-deadline"></dd>
+            <dt>พร้อมเพย์</dt><dd><span>090-936-5562</span> <button class="copy" data-copy="0909365562" type="button">คัดลอก</button></dd>
+          </dl>
+        </div>
+        <p class="pay-refund" id="pay-refund"></p>
+
+        <ol class="pay-steps">
+          <li>สแกน QR หรือโอนเข้าพร้อมเพย์ 090-936-5562 ตามยอดที่ต้องชำระ</li>
+          <li>กดปุ่ม <b>"ส่งสลิปทาง LINE"</b> แล้วแนบรูปสลิปโอนเงินในแชต</li>
+          <li>แอดมินตรวจสอบยอดแล้วจะตอบยืนยันการจองในแชต</li>
+        </ol>
+
+        <div class="btns">
+          <a class="btn btn-primary" id="line-link" href="#" target="_blank" rel="noopener">ส่งสลิปทาง LINE</a>
+          <a class="btn btn-ghost" href="index.html">กลับหน้าแรก</a>
+        </div>
+
+        <details class="pay-summary">
+          <summary>ดูรายละเอียดการจอง</summary>
+          <p class="done-text" id="done-text"></p>
+        </details>
+      </section>
+    </div>
+
+    <!-- แถบสรุปด้านล่าง (โชว์เมื่อเลือกบ้านแล้ว) -->
+    <div class="book-bar" id="bar" hidden>
+      <div class="wrap">
+        <p id="bar-text"></p>
+        <button class="btn btn-primary" type="button" id="to-details">จอง</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- สร้างรูป QR พร้อมเพย์ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>

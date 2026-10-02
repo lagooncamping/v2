@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ที่พัก &amp; ราคา | The Lagoon Camping Resort</title>
+  <meta name="description" content="ราคาลานกางเต็นท์ 200 บาท/ท่าน และบ้านพักริมทะเลสาบ 6 หลัง เริ่ม 1,300 บาท/คืน ที่ The Lagoon Camping Resort นายายอาม จันทบุรี">
+  <link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/rooms.html">
+  <link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/rooms.html">
+  <meta property="og:title" content="ที่พัก &amp; ราคา | The Lagoon Camping Resort">
+  <meta property="og:image" content="https://lagooncamping.github.io/img/house-orchid.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Chonburi&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="rooms" data-root="">
+  <main class="page">
+    <!-- ===== ลานกางเต็นท์ (ตัวเลขเติมจาก js/data.js) ===== -->
+    <section id="camping" aria-labelledby="camp-h">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">ที่พัก &amp; ราคา</span>
+          <h1>เลือกได้ทั้ง<span class="nw">กางเต็นท์</span><wbr>และ<span class="nw">บ้านพัก</span></h1>
+          <p>ราคาต่อคืน ตามโปรโมชั่นล่าสุดบนเพจ</p>
+        </div>
+        <div class="camp">
+          <img class="zoom" src="img/glamping.jpg" alt="เต็นท์ริมทะเลสาบยามเช้า" loading="lazy">
+          <div class="board">
+            <h2 id="camp-h">ลานกางเต็นท์</h2>
+            <p class="sub">ลานหญ้าริมน้ำ มีจุดพ่วงปลั๊กไฟ ห้องน้ำแยกชาย–หญิง</p>
+            <div class="row"><span class="name">นำเต็นท์มาเอง</span><span class="baht"><span data-fill="camping">200</span><small>บาท / ท่าน</small></span></div>
+            <div class="row"><span class="name">เต็นท์เช่า</span><span class="baht"><span data-fill="rent">1,000–1,200</span><small>บาท</small></span><span class="detail">พร้อมเครื่องนอน 2 ชุด และพัดลม</span></div>
+            <div class="row"><span class="name">ฟรีสำหรับทุกคน</span><span class="detail">ตกปลา · พายแคนู 1 ชม./ท่าน · ชูชีพ · Wi‑Fi · สัตว์เลี้ยง</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== บ้านพัก (การ์ดสร้างโดย js/rooms.js จากข้อมูลใน js/data.js) ===== -->
+    <section id="houses" class="band" aria-labelledby="houses-h">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">บ้านพัก</span>
+          <h2 id="houses-h">บ้านพักริมทะเลสาบ 6 หลัง</h2>
+          <p>ราคาต่อหลังต่อคืน กดที่รูปเพื่อดูภาพขยาย</p>
+        </div>
+        <div class="rooms" id="rooms"></div>
+        <p class="note">ราคาอาจเปลี่ยนตามช่วงเทศกาลและวันหยุด กรุณาโทรสอบถามและจองล่วงหน้าก่อนเดินทาง</p>
+
+        <div class="next">
+          <p>พร้อมแล้ว? เลือกวันและบ้านที่ว่างได้เลย</p>
+          <div class="btns">
+            <a class="btn btn-ghost" href="tel:+66819304969">โทร 081-930-4969</a>
+            <a class="btn btn-primary" href="booking.html">เช็กวันว่าง &amp; จอง</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/rooms.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>
