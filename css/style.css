@@ -111,15 +111,27 @@ main > .band + section, main > section + .band { border-top: 0; }
 .nav .brand { color: var(--nav-ink); }
 .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .nav ul a { text-decoration: none; color: color-mix(in srgb, var(--nav-ink) 80%, transparent); font-size: .95rem; white-space: nowrap; }
-.nav ul a:hover { color: var(--nav-ink); }
-.nav ul a[aria-current="page"] { color: var(--nav-ink); text-decoration: underline 2px var(--sun); text-underline-offset: 8px; }
+/* เอาเมาส์ชี้เมนู: ตัวหนังสือสว่างขึ้น + เส้นสีส้มค่อยๆ ยืดออกจากตรงกลาง (หน้าปัจจุบันมีเส้นค้างไว้) */
+.nav ul a { position: relative; display: inline-block; padding-block: 4px; transition: color .2s, transform .2s; }
+.nav ul a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px;
+  background: var(--sun); transform: scaleX(0); transition: transform .25s ease;
+}
+.nav ul a:hover, .nav ul a:focus-visible { color: var(--nav-ink); transform: translateY(-1px); }
+.nav ul a:hover::after, .nav ul a:focus-visible::after, .nav ul a[aria-current="page"]::after { transform: scaleX(1); }
+.nav ul a[aria-current="page"] { color: var(--nav-ink); }
+.nav .btn-primary { transition: transform .2s, box-shadow .2s, opacity .2s; }
+.nav .btn-primary:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(238,174,98,.45); }
+.brand::before { transition: transform .4s ease; }
+.nav .brand:hover::before { transform: rotate(-8deg) scale(1.06); }
 .nav-end { display: flex; align-items: center; gap: 14px; }
 .nav .btn-primary { background: var(--sun); color: #1f231f; font-weight: 600; }
 .lang {
   color: var(--nav-ink); text-decoration: none; font-size: .85rem; font-weight: 600;
   border: 1px solid color-mix(in srgb, var(--nav-ink) 45%, transparent); border-radius: 999px; padding: 4px 11px;
 }
-.lang:hover { background: color-mix(in srgb, var(--nav-ink) 14%, transparent); }
+.lang { transition: background-color .2s, color .2s, border-color .2s; }
+.lang:hover { background: var(--nav-ink); color: var(--nav-bg); border-color: var(--nav-ink); }
 
 /* หน้าแรก: เมนูโปร่งใสลอยบนรูปปก */
 .nav-over { position: fixed; left: 0; right: 0; background: transparent; transition: transform .25s ease, background-color .3s ease, box-shadow .3s ease; }
@@ -191,6 +203,17 @@ main > .band + section, main > section + .band { border-top: 0; }
 .hero h1 { font-size: clamp(2.2rem, 7vw, 4.4rem); line-height: 1.3; color: #fbf8f1; }
 .hero .lead { font-size: 1.1rem; margin: 20px 0 32px; max-width: 34em; opacity: .93; }
 .hero .btn-ghost { color: #fbf8f1; }
+/* ปุ่มรองบนรูปปก: กรอบใสพื้นเบลอ เอาเมาส์ชี้แล้วเป็นพื้นขาว */
+.btn-glass {
+  color: #fbf8f1; border-color: rgba(251,248,241,.7); background: rgba(251,248,241,.12);
+  backdrop-filter: blur(6px); transition: background-color .2s, color .2s, transform .2s;
+}
+.btn-glass:hover { background: #fbf8f1; color: #1f231f; transform: translateY(-1px); }
+.btn-sun { transition: transform .2s, box-shadow .2s; }
+.btn-sun:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(238,174,98,.45); }
+.hero .btn-glass { text-shadow: none; }
+/* คนที่ตั้งเครื่องให้ลดการเคลื่อนไหว: ไม่ขยับ */
+@media (prefers-reduced-motion: reduce) { .nav *, .btn { transition: none !important; transform: none !important; } }
 /* แถบจุดเด่นใต้ปุ่ม */
 .hero-facts { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 36px 0 0; padding: 18px 0 0; border-top: 1px solid rgba(255,255,255,.25); font-size: .92rem; opacity: .92; }
 .hero-facts li::before { content: "✦"; color: var(--sun); margin-right: 8px; font-size: .8em; }
