@@ -85,6 +85,7 @@ body:has(.book-bar:not([hidden])) { padding-bottom: 90px; }
 .status { font-size: .8rem; color: var(--muted); white-space: nowrap; }
 .house.is-booked .status { color: var(--ink); background: var(--line); padding: 0 10px; border-radius: 4px; }
 .house-type { color: var(--muted); font-size: .92rem; margin: 2px 0 6px; }
+.house-feats { color: var(--muted); font-size: .88rem; margin: 0 0 6px; }
 .house-price { margin: 0 0 16px; }
 .house-price b { font-weight: 500; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
 

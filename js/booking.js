@@ -146,6 +146,7 @@ housesEl.innerHTML = HOUSES.map((h) => `
     </div>
     <div class="house-head"><h3>${h.name}</h3><span class="status"></span></div>
     <p class="house-type">${h.type[LANG]} · ${T.guests(h.guests)}</p>
+    <p class="house-feats">${h.features.map((f) => f[LANG]).join(' · ')}</p>
     <p class="house-price"><b>${baht(h.price)}</b> ${T.perNight}</p>
     <label class="pick"><input type="checkbox" value="${h.id}"><span>${T.pick}</span></label>
   </article>`).join('');

@@ -28,36 +28,62 @@ window.LAGOON = {
   },
 
   // บ้านพัก — id ต้องตรงกับ Code.gs และแผนผังในหน้าจอง
+  // features = รายละเอียดห้อง (โชว์ในหน้าที่พักและหน้าจอง) ยืนยันจากเว็บเดิม 2 ต.ค. 2026
   // TODO: รูปตอนนี้เป็นรูปตัวอย่าง ยังไม่ใช่รูปจริงของแต่ละหลัง
   houses: [
     {
       id: 'lagoon-1', group: 'lagoon', name: 'Lagoon 1', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
+      features: [
+        { th: '1 เตียงใหญ่', en: '1 double bed' },
+        { th: 'ห้องน้ำในตัว', en: 'Private bathroom' },
+      ],
       photos: ['houses.jpg', 'house-orchid.jpg', 'lake-view.jpg'],
     },
     {
       id: 'lagoon-2', group: 'lagoon', name: 'Lagoon 2', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
+      features: [
+        { th: '1 เตียงใหญ่', en: '1 double bed' },
+        { th: 'ห้องน้ำในตัว', en: 'Private bathroom' },
+      ],
       photos: ['house-orchid.jpg', 'houses.jpg', 'lake-view.jpg'],
     },
     {
       id: 'lagoon-3', group: 'lagoon', name: 'Lagoon 3', guests: 2, price: 1500,
       type: { th: 'บ้านหลังเล็ก', en: 'Small cabin' },
+      features: [
+        { th: '1 เตียงใหญ่', en: '1 double bed' },
+        { th: 'ห้องน้ำในตัว', en: 'Private bathroom' },
+      ],
       photos: ['houses.jpg', 'lake-view.jpg'],
     },
     {
       id: 'studio', group: 'studio', name: 'Lagoon Studio', guests: 2, price: 1500,
       type: { th: 'บ้านหลังใหม่ สไตล์โมเดิร์น', en: 'New modern-style cabin' },
+      features: [
+        { th: '1 เตียงใหญ่', en: '1 double bed' },
+        { th: 'ห้องน้ำในตัว', en: 'Private bathroom' },
+      ],
       photos: ['house-orchid.jpg', 'sunset.jpg'],
     },
     {
       id: 'family-1', group: 'family-1', name: 'Lagoon Family 1', guests: 4, price: 2500,
-      type: { th: '1 ห้องนอน 1 ห้องน้ำ', en: '1 bedroom · 1 bathroom' },
+      type: { th: 'บ้านหลังกลาง', en: 'Medium cabin' },
+      features: [
+        { th: '1 ห้องนอน 2 เตียง', en: '1 bedroom with 2 beds' },
+        { th: 'ห้องน้ำในตัว', en: 'Private bathroom' },
+      ],
       photos: ['houses.jpg', 'kayak.jpg', 'sunset.jpg'],
     },
     {
       id: 'family-2', group: 'family-2', name: 'Lagoon Family 2', guests: 4, price: 3000,
-      type: { th: '2 ห้องนอน 2 ห้องน้ำ · มีครัว', en: '2 bedrooms · 2 bathrooms · kitchen' },
+      type: { th: 'บ้านหลังใหญ่', en: 'Large cabin' },
+      features: [
+        { th: '2 ห้องนอน (ห้องละ 1 เตียงใหญ่)', en: '2 bedrooms (1 double bed each)' },
+        { th: '2 ห้องน้ำในตัว', en: '2 private bathrooms' },
+        { th: 'มีครัว', en: 'Kitchen' },
+      ],
       photos: ['house-orchid.jpg', 'lake-view.jpg', 'night.jpg'],
     },
   ],

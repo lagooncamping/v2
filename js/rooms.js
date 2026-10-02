@@ -24,6 +24,7 @@
         <ul class="meta">
           <li>${T.guests(h.guests)}</li>
           <li>${h.type[lang]}</li>
+          ${h.features.map((f) => `<li>${f[lang]}</li>`).join('')}
         </ul>
         ${h.count > 1 ? `<p class="count">${T.units(h.count)}</p>` : ''}
         <p class="price">
