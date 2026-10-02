@@ -138,7 +138,15 @@ main > .band + section, main > section + .band { border-top: 0; }
   .nav ul::-webkit-scrollbar { display: none; }
   .nav ul a { font-size: .88rem; }
 }
-@media (max-width: 380px) { .brand { font-size: 1.1rem; } .brand::before { width: 34px; height: 34px; } .nav-end { gap: 8px; } }
+/* จอเล็ก: ย่อโลโก้/ปุ่ม ให้ชื่อ + ปุ่มภาษา + ปุ่มจอง อยู่แถวเดียวกัน */
+@media (max-width: 420px) {
+  .nav .wrap { column-gap: 8px; }
+  .nav .brand { font-size: 1.05rem; gap: 8px; }
+  .nav .brand::before { width: 32px; height: 32px; }
+  .nav-end { gap: 8px; margin-left: auto; }
+  .nav .btn-small { padding: 6px 12px; font-size: .85rem; }
+  .lang { padding: 3px 9px; font-size: .8rem; }
+}
 
 /* ---------- ปุ่มติดต่อลอย (มือถือเท่านั้น) ---------- */
 .fab { display: none; }
@@ -192,7 +200,7 @@ main > .band + section, main > section + .band { border-top: 0; }
 /* ---------- ของฟรี / กิจกรรม ---------- */
 .free-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 @media (max-width: 900px) { .free-items { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
-@media (max-width: 420px) { .free-items { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 420px) { .free-items { gap: 10px; } .item { padding: 16px; } .item svg { width: 30px; height: 30px; } .item strong { font-size: 1rem; } }
 .item { min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .item svg { display: block; width: 36px; height: 36px; margin-bottom: 12px; color: var(--forest); }
 .item strong { display: block; font-weight: 600; font-size: 1.1rem; }

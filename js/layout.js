@@ -57,7 +57,7 @@
         ${['rooms', 'gallery', 'stay', 'contact'].map((k) => `<li><a href="${link(k)}"${current(k)}>${T.pages[k]}</a></li>`).join('')}
       </ul>
       <div class="nav-end">
-        <a class="lang" href="${other + (FILES[page] || 'index.html')}" hreflang="${lang === 'en' ? 'th' : 'en'}" lang="${lang === 'en' ? 'th' : 'en'}" aria-label="${T.switchLabel}">${T.switchTo}</a>
+        <a class="lang" href="${other + (FILES[page] || 'index.html') + location.search}" hreflang="${lang === 'en' ? 'th' : 'en'}" lang="${lang === 'en' ? 'th' : 'en'}" aria-label="${T.switchLabel}">${T.switchTo}</a>
         <a class="btn btn-primary btn-small" href="${link('booking')}"${current('booking')}>${T.book}</a>
       </div>
     </div>`;
@@ -159,6 +159,15 @@
       sel.addRange(range);
     }
   });
+
+  // ---------- ลิงก์แบบ #ส่วน (เช่น rooms.html#houses) ----------
+  // เมนูและการ์ดบ้านถูกสร้างหลังเบราว์เซอร์เลื่อนหน้าไปแล้ว → เลื่อนให้ใหม่ตอนโหลดเสร็จ
+  if (location.hash && page !== 'booking') {
+    window.addEventListener('load', () => {
+      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    });
+  }
 
   // ---------- ช่องที่ใส่ข้อมูลจาก data.js อัตโนมัติ ----------
   // <span data-fill="price:studio"> → ราคาบ้าน · <span data-fill="camping"> → ราคาลานเต็นท์

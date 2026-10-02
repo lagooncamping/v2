@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- รายชื่อหน้าเว็บสำหรับ Google (ถ้าเพิ่มหน้าใหม่ ให้เพิ่มที่นี่ด้วย) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://lagooncamping.github.io/</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/"/></url>
+  <url><loc>https://lagooncamping.github.io/en/</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/"/></url>
+  <url><loc>https://lagooncamping.github.io/rooms.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/rooms.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/rooms.html"/></url>
+  <url><loc>https://lagooncamping.github.io/en/rooms.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/rooms.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/rooms.html"/></url>
+  <url><loc>https://lagooncamping.github.io/gallery.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/gallery.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/gallery.html"/></url>
+  <url><loc>https://lagooncamping.github.io/en/gallery.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/gallery.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/gallery.html"/></url>
+  <url><loc>https://lagooncamping.github.io/stay.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/stay.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/stay.html"/></url>
+  <url><loc>https://lagooncamping.github.io/en/stay.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/stay.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/stay.html"/></url>
+  <url><loc>https://lagooncamping.github.io/contact.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/contact.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/contact.html"/></url>
+  <url><loc>https://lagooncamping.github.io/en/contact.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/contact.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/contact.html"/></url>
+  <url><loc>https://lagooncamping.github.io/booking.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/booking.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/booking.html"/></url>
+  <url><loc>https://lagooncamping.github.io/en/booking.html</loc><xhtml:link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/booking.html"/><xhtml:link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/booking.html"/></url>
+</urlset>

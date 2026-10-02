@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Your Stay | The Lagoon Camping Resort</title>
+  <meta name="description" content="Check availability and book a lakeside cabin at The Lagoon Camping Resort, Na Yai Am, Chanthaburi.">
+  <link rel="alternate" hreflang="th" href="https://lagooncamping.github.io/booking.html">
+  <link rel="alternate" hreflang="en" href="https://lagooncamping.github.io/en/booking.html">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/favicon-192.png">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Chonburi&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body data-page="booking" data-root="../">
+
+  <main class="book">
+    <div class="wrap">
+      <!-- โชว์เฉพาะโหมดทดลอง (เปิดหน้าด้วย ?demo=1) -->
+      <p class="demo-note">Demo mode: cabins marked "Booked" are sample data, and no real booking will be saved.</p>
+
+      <!-- ===== ขั้นที่ 1: เลือกวันและบ้าน ===== -->
+      <section id="step-pick" aria-labelledby="pick-h">
+        <div class="step-head">
+          <span class="eyebrow">Book your stay</span>
+          <h1 id="pick-h">Choose dates &amp; a cabin</h1>
+        </div>
+
+        <div class="dates">
+          <label class="field">Check-in
+            <input type="date" id="checkin" required>
+          </label>
+          <label class="field">Check-out
+            <input type="date" id="checkout" required>
+          </label>
+        </div>
+        <p class="nights" id="nights" aria-live="polite">Choose your dates first, then tick an available cabin</p>
+
+        <!-- แผนผังจำลอง: แก้ตำแหน่งบ้านได้ที่ x, y ของแต่ละ <g class="m"> -->
+        <figure class="map">
+          <svg viewBox="0 0 300 220" role="group" aria-label="Site map of the cabins. Tap a cabin to see photos and select it.">
+            <path class="lake" d="M0 0H300V62C250 88 205 56 160 74C112 94 60 70 0 90Z"/>
+            <text class="lake-label" x="24" y="34">Lake</text>
+            <path class="walk" d="M292 210C250 200 236 160 190 154S80 150 18 146"/>
+            <text class="entry" x="252" y="214">Entrance →</text>
+
+            <g class="m" data-house="family-1" tabindex="0" role="button">
+              <rect x="28" y="100" width="72" height="28" rx="5"/><text x="64" y="114">Family 1</text>
+            </g>
+            <g class="m" data-house="family-2" tabindex="0" role="button">
+              <rect x="114" y="100" width="72" height="28" rx="5"/><text x="150" y="114">Family 2</text>
+            </g>
+            <g class="m" data-house="studio" tabindex="0" role="button">
+              <rect x="200" y="100" width="72" height="28" rx="5"/><text x="236" y="114">Studio</text>
+            </g>
+            <g class="m" data-house="lagoon-1" tabindex="0" role="button">
+              <rect x="28" y="170" width="72" height="28" rx="5"/><text x="64" y="184">Lagoon 1</text>
+            </g>
+            <g class="m" data-house="lagoon-2" tabindex="0" role="button">
+              <rect x="114" y="170" width="72" height="28" rx="5"/><text x="150" y="184">Lagoon 2</text>
+            </g>
+            <g class="m" data-house="lagoon-3" tabindex="0" role="button">
+              <rect x="200" y="170" width="72" height="28" rx="5"/><text x="236" y="184">Lagoon 3</text>
+            </g>
+          </svg>
+          <ul class="legend">
+            <li><i></i>Available</li>
+            <li><i class="sel"></i>Selected</li>
+            <li><i class="bk"></i>Booked</li>
+          </ul>
+          <figcaption>Illustrative map — tap a cabin to see photos and select it</figcaption>
+        </figure>
+
+        <div class="houses" id="houses"></div>
+      </section>
+
+      <!-- ===== ขั้นที่ 2: กรอกข้อมูล ===== -->
+      <section id="step-details" aria-labelledby="details-h" hidden>
+        <button class="back" type="button" data-back>← Change cabin or dates</button>
+        <div class="step-head">
+          <span class="eyebrow">Almost done</span>
+          <h1 id="details-h">Your details</h1>
+        </div>
+        <dl class="summary" id="summary"></dl>
+
+        <form class="form" id="details-form" novalidate>
+          <label class="field">Full name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="field">Phone (Thai number)
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="0[0-9\- ]{8,11}" placeholder="08X-XXX-XXXX" required>
+          </label>
+          <p class="hint">Our booking system needs a Thai phone number starting with 0. No Thai number? Book with us on <a href="https://line.me/R/ti/p/@477nvamb" target="_blank" rel="noopener">LINE</a> instead.</p>
+          <label class="field">Number of guests
+            <input type="number" name="guests" min="1" max="30" value="2" required>
+          </label>
+          <p class="hint" id="capacity"></p>
+          <label class="field">Note (optional)
+            <textarea name="note" rows="3" maxlength="490" placeholder="e.g. bringing our dog, arriving around 15:00"></textarea>
+          </label>
+          <!-- เลือกแบบชำระเงิน (ยอดเงินเติมโดย js/booking.js) -->
+          <fieldset class="paytype">
+            <legend>Payment option</legend>
+            <label class="paytype-opt">
+              <input type="radio" name="payType" value="deposit" required>
+              <span><b>50% deposit</b> <span class="paytype-amount" data-amount="deposit"></span>
+                <small>Pay the rest on check-in day (cash or transfer at the counter) · not refunded if you cancel or don't show up</small></span>
+            </label>
+            <label class="paytype-opt">
+              <input type="radio" name="payType" value="full" required>
+              <span><b>Pay in full</b> <span class="paytype-amount" data-amount="full"></span>
+                <small>If you cancel or don't show up, 50% of the booking is refunded</small></span>
+            </label>
+          </fieldset>
+
+          <!-- เงื่อนไขการจอง (แก้ข้อความได้ที่นี่ และใน stay.html) -->
+          <div class="policy">
+            <h2>Booking policy</h2>
+            <ul>
+              <li>Pay by PromptPay <b>within 6 hours</b> of booking, or the booking is cancelled automatically.</li>
+              <li>Once paid, you can contact our admin to change your dates.</li>
+              <li><b>50% deposit:</b> pay the rest on check-in day, in cash or by transfer at the counter · the deposit is not refunded if you cancel or don't show up.</li>
+              <li><b>Pay in full:</b> if you cancel or don't show up, you get 50% of the booking amount back (refunded by our admin).</li>
+            </ul>
+          </div>
+          <label class="agree"><input type="checkbox" name="agree" required> I have read and accept the booking policy</label>
+          <!-- ช่องลับกันบอท: คนจริงมองไม่เห็น ห้ามลบ -->
+          <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="btn btn-primary" type="submit">Confirm booking</button>
+        </form>
+      </section>
+
+      <!-- ===== ขั้นที่ 3: ชำระเงิน ===== -->
+      <section id="step-done" aria-labelledby="done-h" hidden>
+        <div class="step-head">
+          <span class="eyebrow">Last step</span>
+          <h1 id="done-h">Pay to confirm your booking</h1>
+          <p>Your cabin is on hold. Please pay before the deadline, or the booking will be cancelled automatically.</p>
+        </div>
+
+        <div class="pay">
+          <figure class="pay-qr">
+            <div id="pay-qr" role="img" aria-label="PromptPay QR code for payment"></div>
+            <figcaption>Scan with a Thai banking app — the amount fills in automatically</figcaption>
+          </figure>
+          <dl class="pay-info">
+            <dt>Booking ID</dt><dd id="pay-id"></dd>
+            <dt id="pay-due-label">Amount due</dt><dd class="pay-amount" id="pay-due"></dd>
+            <dt class="pay-rest-row">Balance</dt><dd class="pay-rest-row" id="pay-rest"></dd>
+            <dt>Pay by</dt><dd class="pay-deadline" id="pay-deadline"></dd>
+            <dt>PromptPay</dt><dd><span>090-936-5562</span> <button class="copy" data-copy="0909365562" type="button">Copy</button></dd>
+          </dl>
+        </div>
+        <p class="pay-refund" id="pay-refund"></p>
+
+        <ol class="pay-steps">
+          <li>Scan the QR code, or transfer the amount due to PromptPay 090-936-5562.</li>
+          <li>Tap <b>"Send slip on LINE"</b> and attach a photo of your transfer slip in the chat.</li>
+          <li>Our admin will check your payment and confirm the booking in the chat.</li>
+        </ol>
+
+        <div class="btns">
+          <a class="btn btn-primary" id="line-link" href="#" target="_blank" rel="noopener">Send slip on LINE</a>
+          <a class="btn btn-ghost" href="index.html">Back to home</a>
+        </div>
+
+        <details class="pay-summary">
+          <summary>Booking details</summary>
+          <p class="done-text" id="done-text"></p>
+        </details>
+      </section>
+    </div>
+
+    <!-- แถบสรุปด้านล่าง (โชว์เมื่อเลือกบ้านแล้ว) -->
+    <div class="book-bar" id="bar" hidden>
+      <div class="wrap">
+        <p id="bar-text"></p>
+        <button class="btn btn-primary" type="button" id="to-details">Book</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- สร้างรูป QR พร้อมเพย์ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/booking.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>
