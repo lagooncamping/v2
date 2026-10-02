@@ -175,10 +175,16 @@ main > .band + section, main > section + .band { border-top: 0; }
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
+  /* เงาเข้ม 3 ชั้น: ด้านบน (ให้เมนูอ่านออก) · ด้านซ้าย (ตรงข้อความ) · ด้านล่าง */
   background:
-    linear-gradient(to bottom, rgba(12,14,10,.55), rgba(12,14,10,0) 28%),
-    linear-gradient(to top, rgba(12,14,10,.78), rgba(12,14,10,.2) 60%, rgba(12,14,10,0));
+    linear-gradient(to bottom, rgba(12,14,10,.6), rgba(12,14,10,0) 28%),
+    linear-gradient(to right, rgba(12,14,10,.72), rgba(12,14,10,.45) 45%, rgba(12,14,10,.1) 75%),
+    linear-gradient(to top, rgba(12,14,10,.85), rgba(12,14,10,.3) 60%, rgba(12,14,10,.1));
 }
+/* มือถือ: ข้อความเต็มความกว้างจอ → มืดทั้งรูปเท่าๆ กัน */
+@media (max-width: 720px) { .hero::before { background: linear-gradient(to bottom, rgba(12,14,10,.55), rgba(12,14,10,.5) 30%, rgba(12,14,10,.85)); } }
+.hero-text > * { text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+.hero .btn { text-shadow: none; }
 .hero-text { position: relative; z-index: 2; width: 100%; padding-block: 140px 64px; }
 .hero-name { margin: 0 0 6px; font-family: var(--font-display); font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--sun); line-height: 1.4; }
 .hero-name:lang(en), :lang(en) .hero-name { font-style: italic; }
