@@ -16,7 +16,7 @@
 
 ## ที่อยู่เว็บ (แยกจากเว็บเก่า ไม่ทับกัน)
 - เว็บเก่า: https://lagooncamping.github.io/
-- เว็บใหม่: https://lagooncamping.github.io/v2/ (ยังไม่ได้อัปโหลด)
+- เว็บใหม่: https://lagooncamping.github.io/v2/ (repo: github.com/lagooncamping/v2 — แก้ไฟล์แล้ว push ขึ้น main เว็บจะอัปเดตเองใน 1–2 นาที)
 
 ## ทดลองจองโดยไม่ให้เข้าชีตจริง
 เปิด `booking.html?demo=1`
