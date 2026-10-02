@@ -4,8 +4,8 @@
   const lang = document.documentElement.lang === 'en' ? 'en' : 'th';
   const root = document.body.dataset.root || '';
   const T = {
-    th: { guests: (n) => `${n} ท่าน`, units: (n) => `มี ${n} หลัง`, night: 'บาท / คืน', book: 'จองหลังนี้', alt: (name) => `รูปตัวอย่าง: ${name}` },
-    en: { guests: (n) => `${n} guests`, units: (n) => `${n} cabins available`, night: 'THB / night', book: 'Book this cabin', alt: (name) => `Sample photo: ${name}` },
+    th: { guests: (n) => `${n} ท่าน`, units: (n) => `มี ${n} หลัง แบบเดียวกัน`, night: 'บาท / คืน', book: 'จองหลังนี้', alt: (name) => `รูปตัวอย่าง: ${name}` },
+    en: { guests: (n) => `${n} guests`, units: (n) => `${n} identical cabins`, night: 'THB / night', book: 'Book this cabin', alt: (name) => `Sample photo: ${name}` },
   }[lang];
 
   // Lagoon 1–3 เป็นแบบเดียวกัน → รวมเป็นการ์ดเดียว

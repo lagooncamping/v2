@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /qr-counter.html
-
-Sitemap: https://lagooncamping.github.io/sitemap.xml

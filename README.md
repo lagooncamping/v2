@@ -12,7 +12,11 @@
 - ปุ่มโทร / LINE ลอยมุมจอบนมือถือ
 - แผนที่ Google Maps ในหน้าติดต่อ
 - ลิงก์ไปอ่านรีวิวจริงบน Facebook
-- ไฟล์สำหรับ Google: ข้อมูลธุรกิจ (schema), `sitemap.xml`, `robots.txt`
+- ไฟล์สำหรับ Google: ข้อมูลธุรกิจ (schema), `sitemap.xml`
+
+## ที่อยู่เว็บ (แยกจากเว็บเก่า ไม่ทับกัน)
+- เว็บเก่า: https://lagooncamping.github.io/
+- เว็บใหม่: https://lagooncamping.github.io/v2/ (ยังไม่ได้อัปโหลด)
 
 ## ทดลองจองโดยไม่ให้เข้าชีตจริง
 เปิด `booking.html?demo=1`
