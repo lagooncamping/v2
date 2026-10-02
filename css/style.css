@@ -337,8 +337,8 @@ main > .band + section, main > section + .band { border-top: 0; }
 .lightbox { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0b0d0a; color: #f1ede3; }
 .lightbox::backdrop { background: #0b0d0a; }
 .lightbox figure { margin: 0; height: 100%; padding: 60px 16px 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
-/* รูปต้นฉบับความละเอียดไม่สูง — จำกัดไม่ให้ขยายจนแตก */
-.lightbox img { max-width: min(100%, 900px); max-height: min(calc(100dvh - 150px), 640px); object-fit: contain; border-radius: 4px; }
+/* จำกัดขนาดภาพขยายไม่ให้ใหญ่เกินความละเอียดรูปต้นฉบับ */
+.lightbox img { max-width: min(100%, 1400px); max-height: min(calc(100dvh - 150px), 940px); object-fit: contain; border-radius: 4px; }
 .lightbox figcaption { font-size: .95rem; text-align: center; }
 .lb-count { position: absolute; top: 22px; left: 0; right: 0; margin: 0; text-align: center; font-size: .85rem; opacity: .8; pointer-events: none; }
 .lightbox button { position: absolute; width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(255,255,255,.14); color: #fff; font: inherit; font-size: 1.6rem; line-height: 1; cursor: pointer; }
