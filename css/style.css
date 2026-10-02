@@ -96,6 +96,11 @@ main > .band + section, main > section + .band { border-top: 0; }
 .btn-sun { background: var(--sun); color: #1f231f; font-weight: 600; }
 .btn-ghost { padding-inline: 0; color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .btn-small { padding: 8px 16px; font-size: .9rem; }
+/* ปุ่มรองบนพื้นสีอ่อน: กรอบสีเขียว เอาเมาส์ชี้แล้วเป็นพื้นเขียว (บนพื้นเข้มใช้ .btn-glass) */
+.btn-outline { color: var(--forest); border-color: var(--forest); background: transparent; transition: background-color .2s, color .2s, transform .2s; }
+.btn-outline:hover { background: var(--forest); color: var(--bg); transform: translateY(-1px); }
+.btn-primary { transition: opacity .2s, transform .2s; }
+.btn-primary:hover { transform: translateY(-1px); }
 
 /* ---------- เมนูด้านบน (สร้างโดย js/layout.js) ---------- */
 .nav { position: sticky; top: 0; z-index: 10; background: var(--nav-bg); color: var(--nav-ink); transition: transform .25s ease; }
